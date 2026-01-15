@@ -1,0 +1,29 @@
+<div class="upload-container">
+  <h2>Upload CSV File</h2>
+
+  <div class="upload-area">
+    <input
+      type="file"
+      accept=".csv"
+      (change)="onFileSelected($event)"
+      id="fileInput"
+      class="file-input"
+    />
+    <label for="fileInput" class="file-label">
+      <span *ngIf="!selectedFile">Choose CSV file</span>
+      <span *ngIf="selectedFile">{{ selectedFile.name }}</span>
+    </label>
+
+    <button
+      (click)="uploadFile()"
+      [disabled]="!selectedFile || uploading"
+      class="upload-btn"
+    >
+      {{ uploading ? 'Uploading...' : 'Upload' }}
+    </button>
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+</div>

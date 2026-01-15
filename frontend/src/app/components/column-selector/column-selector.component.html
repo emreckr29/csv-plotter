@@ -1,0 +1,40 @@
+<div class="selector-container">
+  <h3>Select Columns for Plotting</h3>
+
+  <div class="selection-grid">
+    <!-- X-Axis Selection -->
+    <div class="selection-box">
+      <h4>X-Axis Column</h4>
+      <select
+        [(ngModel)]="selectedXColumn"
+        (change)="onXColumnChange(selectedXColumn)"
+        class="column-select"
+      >
+        <option value="">-- Select X Column --</option>
+        <option *ngFor="let col of columns" [value]="col">
+          {{ col }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Y-Axis Selection -->
+    <div class="selection-box">
+      <h4>Y-Axis Column(s)</h4>
+      <div class="checkbox-list">
+        <label *ngFor="let col of columns" class="checkbox-item">
+          <input
+            type="checkbox"
+            [checked]="isYColumnSelected(col)"
+            (change)="onYColumnToggle(col)"
+            [disabled]="col === selectedXColumn"
+          />
+          <span>{{ col }}</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="selectedXColumn && selectedYColumns.length === 0" class="info-message">
+    Please select at least one Y-axis column
+  </div>
+</div>

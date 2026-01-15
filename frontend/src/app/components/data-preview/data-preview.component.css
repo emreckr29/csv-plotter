@@ -1,0 +1,106 @@
+.preview-container {
+  margin: 20px 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.preview-header:hover {
+  background-color: #e9ecef;
+}
+
+.preview-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 18px;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #007bff;
+  padding: 5px;
+}
+
+.preview-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.preview-content.expanded {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  padding: 0 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+
+thead {
+  background-color: #007bff;
+  color: white;
+  position: sticky;
+  top: 0;
+}
+
+th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #0056b3;
+}
+
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  color: #555;
+}
+
+tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.preview-note {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  padding: 10px;
+  margin: 0;
+  background-color: #f8f9fa;
+  border-top: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 12px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+}

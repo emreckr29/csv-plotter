@@ -1,0 +1,26 @@
+<div class="preview-container" *ngIf="data && data.length > 0">
+  <div class="preview-header" (click)="toggleExpand()">
+    <h3>Data Preview ({{ rowCount }} rows)</h3>
+    <button class="toggle-btn">
+      {{ isExpanded ? '▼' : '▶' }}
+    </button>
+  </div>
+
+  <div class="preview-content" [class.expanded]="isExpanded">
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th *ngFor="let col of columns">{{ col }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of data">
+            <td *ngFor="let col of columns">{{ row[col] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="preview-note">Showing first 10 rows</p>
+  </div>
+</div>

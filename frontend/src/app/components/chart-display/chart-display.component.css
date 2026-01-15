@@ -1,0 +1,102 @@
+.chart-container {
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 20px 0;
+}
+
+.chart-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.chart-type-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chart-type-selector label {
+  font-weight: 600;
+  color: #555;
+}
+
+.chart-btn {
+  padding: 8px 20px;
+  border: 2px solid #ddd;
+  background-color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.chart-btn:hover {
+  background-color: #f5f5f5;
+  border-color: #007bff;
+}
+
+.chart-btn.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.download-btn {
+  padding: 10px 24px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #218838;
+}
+
+.chart-wrapper {
+  position: relative;
+  height: 500px;
+  width: 100%;
+}
+
+.no-data-message {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.no-data-message p {
+  color: #999;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .chart-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .chart-type-selector {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .chart-btn {
+    width: 100%;
+  }
+
+  .chart-wrapper {
+    height: 400px;
+  }
+}

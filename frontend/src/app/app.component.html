@@ -1,0 +1,56 @@
+<div class="app-container">
+  <header class="app-header">
+    <h1>{{ title }}</h1>
+    <p class="subtitle">Upload CSV files and create interactive 2D plots</p>
+  </header>
+
+  <main class="app-content">
+    <!-- Upload Section -->
+    <app-upload (fileUploaded)="onFileUploaded($event)"></app-upload>
+
+    <!-- File Info Section -->
+    <div *ngIf="fileUploaded" class="file-info">
+      <div class="info-card">
+        <span class="info-label">File:</span>
+        <span class="info-value">{{ fileName }}</span>
+      </div>
+      <div class="info-card">
+        <span class="info-label">Columns:</span>
+        <span class="info-value">{{ columns.length }}</span>
+      </div>
+      <div class="info-card">
+        <span class="info-label">Rows:</span>
+        <span class="info-value">{{ rowCount }}</span>
+      </div>
+    </div>
+
+    <!-- Metadata View -->
+    <app-metadata-view
+      [metadata]="metadata"
+      [hasMetadata]="hasMetadata">
+    </app-metadata-view>
+
+    <!-- Data Preview -->
+    <app-data-preview
+      [data]="previewData"
+      [columns]="columns"
+      [rowCount]="rowCount">
+    </app-data-preview>
+
+    <!-- Column Selector -->
+    <app-column-selector
+      *ngIf="fileUploaded"
+      [columns]="columns"
+      (columnsSelected)="onColumnsSelected($event)">
+    </app-column-selector>
+
+    <!-- Chart Display -->
+    <app-chart-display
+      [plotData]="plotData">
+    </app-chart-display>
+  </main>
+
+  <footer class="app-footer">
+    <p>CSV Data Plotter - Assessment Project</p>
+  </footer>
+</div>

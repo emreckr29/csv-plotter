@@ -1,0 +1,28 @@
+touch .gitignore
+```
+
+İçine:
+```
+# Node modules
+node_modules/
+
+# Uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Environment files
+.env
+
+# Angular
+frontend/dist/
+frontend/.angular/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

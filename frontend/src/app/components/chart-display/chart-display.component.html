@@ -1,0 +1,40 @@
+<div class="chart-container" *ngIf="plotData">
+  <div class="chart-controls">
+    <div class="chart-type-selector">
+      <label>Chart Type:</label>
+      <button
+        (click)="changeChartType('line')"
+        [class.active]="chartType === 'line'"
+        class="chart-btn"
+      >
+        Line
+      </button>
+      <button
+        (click)="changeChartType('bar')"
+        [class.active]="chartType === 'bar'"
+        class="chart-btn"
+      >
+        Bar
+      </button>
+      <button
+        (click)="changeChartType('scatter')"
+        [class.active]="chartType === 'scatter'"
+        class="chart-btn"
+      >
+        Scatter
+      </button>
+    </div>
+
+    <button (click)="downloadChart()" class="download-btn">
+      Download Chart
+    </button>
+  </div>
+
+  <div class="chart-wrapper">
+    <canvas #chartCanvas></canvas>
+  </div>
+</div>
+
+<div *ngIf="!plotData" class="no-data-message">
+  <p>Select columns to display chart</p>
+</div>

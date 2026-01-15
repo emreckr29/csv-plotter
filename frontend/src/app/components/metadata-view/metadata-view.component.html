@@ -1,0 +1,16 @@
+<div class="metadata-container" *ngIf="hasMetadata && metadata && metadata.length > 0">
+  <div class="metadata-header" (click)="toggleExpand()">
+    <h3>File Metadata</h3>
+    <button class="toggle-btn">
+      {{ isExpanded ? '▼' : '▶' }}
+    </button>
+  </div>
+
+  <div class="metadata-content" [class.expanded]="isExpanded">
+    <div class="metadata-list">
+      <div *ngFor="let line of metadata" class="metadata-item">
+        {{ line }}
+      </div>
+    </div>
+  </div>
+</div>
