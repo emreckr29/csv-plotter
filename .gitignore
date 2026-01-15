@@ -1,8 +1,3 @@
-touch .gitignore
-```
-
-İçine:
-```
 # Node modules
 node_modules/
 
