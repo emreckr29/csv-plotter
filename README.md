@@ -71,13 +71,6 @@ Frontend runs on `http://localhost:4200`
 - English number format (1,000,000.00)
 - Files with metadata headers (lines starting with #)
 
-## Test Data
-
-Three test CSV files are included:
-- **TestData1.csv**: Engineering data with large numbers
-- **TestData2.csv**: Frequency sweep data with metadata
-- **TestData3.csv**: Simple mathematical function data
-
 ## Project Structure
 ```
 csv-plotter/
