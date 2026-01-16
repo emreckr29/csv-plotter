@@ -224,6 +224,23 @@ router.post('/plot-data', (req, res) => {
     const parsed = parseCSV(filePath);
     const data = parsed.data;
 
+    // Validate that Y columns contain numeric data
+    const invalidColumns = [];
+    yColumns.forEach(yCol => {
+      const hasNumericData = data.some(row => typeof row[yCol] === 'number');
+      if (!hasNumericData) {
+        invalidColumns.push(yCol);
+      }
+    });
+
+    if (invalidColumns.length > 0) {
+      return res.status(400).json({
+        error: 'Selected columns contain non-numeric data!',
+        details: `The following columns cannot be plotted: ${invalidColumns.join(', ')}. Please select columns with numeric values.`,
+        invalidColumns: invalidColumns
+      });
+    }
+
     // Prepare data for plotting
     const plotData = {
       labels: data.map(row => row[xColumn]),

@@ -69,7 +69,12 @@ export class AppComponent {
         },
         error: (err) => {
           console.error('Error fetching plot data:', err);
-          alert('Failed to generate plot data!');
+
+          const errorMsg = err.error?.details || 'Failed to generate plot data!';
+          alert(errorMsg);
+
+          // Reset plot
+          this.plotData = null;
         }
       });
   }
