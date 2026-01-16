@@ -5,11 +5,10 @@ A modern web application for uploading CSV files and creating interactive
 
 ## Features
 
-- **CSV File Upload**: Support for various CSV formats (German/English 
-number formats)
+- **CSV File Upload**: Support for common CSV formats (comma/semicolon separated, German/English number formats)
 - **Flexible Column Selection**: Choose X-axis and multiple Y-axis columns
 - **Multiple Chart Types**: Line, Bar, and Scatter plots
-- **Metadata Display**: Automatic detection and display of file metadata
+- **Metadata Display**: Automatic detection and display of comment-style metadata (lines starting with #)
 - **Data Preview**: View first 10 rows of uploaded data
 - **Download Charts**: Export charts as PNG images
 - **Responsive Design**: Modern, user-friendly interface
@@ -105,6 +104,10 @@ csv-plotter/
 │   └── package.json
 └── README.md
 ```
+
+## Limitations
+- Y-axis values must be numeric to be plotted.
+- Metadata detection is limited to comment-style lines starting with '#'.
 
 ## Assessment Project
 
